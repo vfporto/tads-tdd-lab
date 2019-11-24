@@ -27,13 +27,15 @@ public class LocacaoServiceTest {
 
     @Before
     public void setup(){
+        /*é executado antes de cada método de teste*/
+        System.out.println("before");
         usuario = new Usuario("Usuario1");
         service = new LocacaoService();
-        System.out.println("before");
     }
 
     @After
-    public void closer(){
+    public void tearDown(){
+        /*é executado após de cada método de teste*/
         System.out.println("after");
     }
 
@@ -97,9 +99,4 @@ public class LocacaoServiceTest {
         //acao
         service.alugarFilme(usuario, filme);
     }
-
-
-
-
-
 }
