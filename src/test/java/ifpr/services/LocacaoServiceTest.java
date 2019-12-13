@@ -97,6 +97,30 @@ public class LocacaoServiceTest {
         service.alugarFilme(usuario, filmes);
     }
 
+    @Test
+    public void testeDescontoLocacao() throws Exception {
+        //cenario
+        ArrayList<Filme> filmes = new ArrayList<>();
+
+        filmes.add(new Filme("Filme 1", 10.0, 2));
+        filmes.add(new Filme("Filme 2", 10.0, 1));
+        filmes.add(new Filme("Filme 3", 10.0, 1));
+        filmes.add(new Filme("Filme 4", 10.0, 1));
+        filmes.add(new Filme("Filme 5", 10.0, 1));
+        filmes.add(new Filme("Filme 6", 10.0, 1));
+
+
+        //acao
+        Locacao locacao = service.alugarFilme(usuario, filmes);
+
+
+        //verificação
+        //Teste de mesa(10 + 10 + 7.5 + 5 + 2.5 + 0 = 35)
+        error.checkThat(locacao.getValor(), is(35.0));
+    }
+
+
+
 //    @Test
 //    public void naoPodeAlugarFilmeSemEstoque3() throws Exception {
 //

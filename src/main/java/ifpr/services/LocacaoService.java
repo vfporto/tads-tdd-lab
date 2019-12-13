@@ -19,18 +19,29 @@ public class LocacaoService {
             }
         }
 
+        Double[] descontos = {0.0, 0.0, 0.25, 0.50, 0.75, 1.0}; //Equivalente a 0%, 0%, 25%, 50%, 75% e 100%
+
         Locacao locacao = new Locacao();
         locacao.setUsuario(usuario);
         locacao.setFilmes(filmes);
         locacao.setDataLocacao(new Date());
         locacao.setDataDevolucao(DataUtils.adicionarDias(new Date(), 1));
 
-        //TODO: preco ainda sem desconto, corrigir
-        Double valor = 0.0;
+        //Retira cada filme do estoque
         for(Filme filme: filmes){
             filme.setEstoque(filme.getEstoque()-1);
-            valor += filme.getPreco();
         }
+
+        //Calcula valor da locacao
+        Double valor = 0.0;
+        for (int i = 0; i < filmes.size(); i++) {
+            Double precoFilme = filmes.get(i).getPreco();
+            if (i < descontos.length){ //aplica desconto de acordo com a tabela
+                precoFilme *= (1-descontos[i]);
+            }
+            valor += precoFilme;
+        }
+
         locacao.setValor(valor);
 
 

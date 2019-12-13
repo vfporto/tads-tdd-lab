@@ -10,17 +10,16 @@ ATIVIDADE TDD:
 
 A partir do código desenvolvido em sala:
 
-Refatore o código para que seja possível que para o algoritmo alugar mais de um Filme;
+Refatore o código para que seja possível que para o algoritmo alugar mais de um Filme; (ok)
+Garanta a corretude do código rodando os testes unitários; (ok)
 
-Garanta a corretude do código rodando os testes unitários;
-
-Corrija os testes que quebrarem;
+Corrija os testes que quebrarem; (ok)
 
 Usando TDD, aplique descontos sucessivos ao Filmes alugados:
-- 25% no terceiro Filme;
-- 50% no quarto Filme;
-- 75% no quinto Filme;
-- 100% no sexto Filme;
+- 25% no terceiro Filme; (ok)
+- 50% no quarto Filme; (ok)
+- 75% no quinto Filme; (ok)
+- 100% no sexto Filme; (ok)
 
 Usando TDD, refatore seu código para que a data de devolução não ocorra em um domingo;
 
