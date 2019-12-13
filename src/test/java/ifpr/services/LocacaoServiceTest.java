@@ -3,11 +3,13 @@ package ifpr.services;
 import ifpr.models.Filme;
 import ifpr.models.Locacao;
 import ifpr.models.Usuario;
+import ifpr.utils.DataUtils;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import static ifpr.utils.DataUtils.adicionarDias;
@@ -118,6 +120,24 @@ public class LocacaoServiceTest {
         //Teste de mesa(10 + 10 + 7.5 + 5 + 2.5 + 0 = 35)
         error.checkThat(locacao.getValor(), is(35.0));
     }
+
+    @Test
+    public void naoPodeDevolverLocacaoNoDomingo() throws Exception {
+        //cenario
+        ArrayList<Filme> filmes = new ArrayList<>();
+
+        filmes.add(new Filme("Filme 1", 10.0, 2));
+        filmes.add(new Filme("Filme 2", 10.0, 1));
+
+
+        //acao
+        Locacao locacao = service.alugarFilme(usuario, filmes);
+
+
+        //verificação
+        assertFalse(DataUtils.verificarDiaSemana(locacao.getDataDevolucao(), Calendar.SUNDAY));
+    }
+
 
 
 

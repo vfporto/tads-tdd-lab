@@ -6,6 +6,7 @@ import ifpr.models.Locacao;
 import ifpr.models.Usuario;
 import ifpr.utils.DataUtils;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +26,12 @@ public class LocacaoService {
         locacao.setUsuario(usuario);
         locacao.setFilmes(filmes);
         locacao.setDataLocacao(new Date());
-        locacao.setDataDevolucao(DataUtils.adicionarDias(new Date(), 1));
+
+        Date dataDevolucao = DataUtils.adicionarDias(new Date(), 1);
+        if (DataUtils.verificarDiaSemana(dataDevolucao, Calendar.SUNDAY)) //verifica se a data de devolucao é Domingo
+            dataDevolucao = DataUtils.adicionarDias(dataDevolucao, 1); //Caso positivo adiciona 1 dia de prazo.
+
+        locacao.setDataDevolucao(dataDevolucao);
 
         //Retira cada filme do estoque
         for(Filme filme: filmes){

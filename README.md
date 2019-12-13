@@ -21,7 +21,7 @@ Usando TDD, aplique descontos sucessivos ao Filmes alugados:
 - 75% no quinto Filme; (ok)
 - 100% no sexto Filme; (ok)
 
-Usando TDD, refatore seu código para que a data de devolução não ocorra em um domingo;
+Usando TDD, refatore seu código para que a data de devolução não ocorra em um domingo; (ok)
 
 Instruções:
 O código deve ser colocado um repositório público e o link enviado como resposta.
