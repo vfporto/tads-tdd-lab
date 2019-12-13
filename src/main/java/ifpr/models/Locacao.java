@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Locacao {
 
-    private Filme filme;
+    private List<Filme> filmes;
     private Usuario usuario;
     private Date dataLocacao;
     private Date dataDevolucao;
@@ -13,21 +13,17 @@ public class Locacao {
 
     public Locacao(){}
 
-    public Locacao(Filme filme, Usuario usuario, Date dataLocacao, Date dataDevolucao, Double valor) {
-        this.filme = filme;
+    public Locacao(List<Filme> filmes, Usuario usuario, Date dataLocacao, Date dataDevolucao, Double valor) {
+        this.filmes = filmes;
         this.usuario = usuario;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
         this.valor = valor;
     }
 
-    public Filme getFilme() {
-        return filme;
-    }
+    public List<Filme> getFilmes() { return filmes; }
 
-    public void setFilme(Filme filme) {
-        this.filme = filme;
-    }
+    public void setFilmes(List<Filme> filmes) { this.filmes = filmes; }
 
     public Usuario getUsuario() {
         return usuario;
@@ -53,9 +49,7 @@ public class Locacao {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Double getValor() {
-        return filme.getPreco();
-    }
+    public Double getValor() { return this.valor; }
 
     public void setValor(Double valor) {
         this.valor = valor;

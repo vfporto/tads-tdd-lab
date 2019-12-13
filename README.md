@@ -3,14 +3,14 @@
 2019 - TADS - Metodologias de Desenvolvimento de Software - Profº Jefferson
 ---------------------------------------------------------------------------
 
-Alunos: Bruna, Fernando, Jefferson e Fabrício.
+__Alunos: Bruna, Fernando, Jefferson e Fabrício.__
 
-
+``````````````````````
 ATIVIDADE TDD:
 
 A partir do código desenvolvido em sala:
 
-Refatore o código para que seja possível alum algoritmo que ugar mais de um Filme;
+Refatore o código para que seja possível que para o algoritmo alugar mais de um Filme;
 
 Garanta a corretude do código rodando os testes unitários;
 
